@@ -1,6 +1,5 @@
 ﻿using CommonCode;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -32,7 +31,7 @@ namespace Game_of_Life {
             this.donePaintingDelegate = donePaintingDelegate;
             this.shutDownDelegate = shutDownDelegate;
 
-            gameOfLife = new GameOfLife(8);
+            gameOfLife = new GameOfLife(32);
 
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // Name explains it.
             SetStyle(ControlStyles.Opaque, true); // Background is taken care of by DrawImage.
@@ -106,7 +105,7 @@ namespace Game_of_Life {
 
             try {
                 SuspendLayout();
-                gameOfLife.drawThenCalc(e.Graphics);
+                gameOfLife.DrawThenCalc(e.Graphics);
                 ResumeLayout();
 
                 paintStatus = PaintStates.PaintSuccessful;
